@@ -42,7 +42,7 @@ export const loginWithEmailAndPassword = (email, password) => signInWithEmailAnd
 //Envía un correo electrónico de restablecimiento de contraseña
 export const recoverPasswordWithEmail = (email) => sendPasswordResetEmail(auth, email);
 
-
+//export const logut = () =>signOut(auth);
 
 
 
