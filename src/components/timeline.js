@@ -1,4 +1,4 @@
-import { insertData,onDataDocument,deletePost } from "../firebase/feed.js";
+import { insertData,onDataDocument,deletePost,} from "../firebase/feed.js";
 import { userDataLocally } from "./sessionStorage.js"
 import { findingUser, collectionPost, updatePost } from "../firebase/firestore.js"
 
@@ -127,6 +127,7 @@ const modalEditPost = (idPost) => {
     const closeModalEdit = document.getElementById("close-edit");
     const modalEdit = document.getElementById("div-modal-edit");
     const btnEdit =document.getElementById("save-post");
+    const textArea = document.getElementById("edit-text-area")
     modalEdit.classList.toggle("modal-close-edit");
     
     closeModalEdit.addEventListener("click", () => {
@@ -134,6 +135,14 @@ const modalEditPost = (idPost) => {
         modalContainerEdit.style.opacity = "0";
         modalContainerEdit.style.visibility = "hidden";
     });
+    btnEdit.addEventListener("click",async (e) => {
+        const docPost = await findingUser(idPost, collectionPost);
+    const dataPost = docPost.data();
+    console.log('dataPost: {}', dataPost);
+        updatePost(idPost, collectionPost, {
+            newPost: textArea.value
+    });
+})
 }
 
 export const btnPostShare = () => {
@@ -209,8 +218,6 @@ export const windowsTimeline = async () => {
         
 
     };
+   
 };
-
-
-
 

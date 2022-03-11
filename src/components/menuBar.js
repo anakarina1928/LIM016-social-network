@@ -1,10 +1,8 @@
-//import { logut } from "../firebase/auth.js"
-/*export const btnsign = (user)  => {
+/*import { logut } from "../firebase/auth.js"
+export const btnsign = (user)  => {
 let btnSignOut = document.getElementById(user)
 btnSignOut.addEventListener("click",async () => {
-    try{
-         let functionLogut= await logut()
-         sessionStorage.clear();
+    try{ let functionLogut= await logut()
         window.location.hash = '#/';
          return functionLogut
    }catch{
@@ -46,10 +44,10 @@ export const menuBar = () => {
             <i class="fa-solid fa-gear fafa-menu"></i>
         </span>
         <span class="divs-menu" >
-            <i  id ="cierre" class="fa-solid fa-arrow-right-to-bracket fafa-menu"></i>
+            <i id="sign-out"class="fa-solid fa-arrow-right-to-bracket fafa-menu"></i>
         </span>
     </div>
-        `
-    
+        ` 
     return templateMenuBar
 }
+
